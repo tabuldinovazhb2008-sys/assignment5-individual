@@ -11,68 +11,83 @@
 
     <header class="hero">
         <h1>JavaScript Assignment 5</h1>
-        <p>Introduction to JavaScript</p>
+        <p>DOM & Events</p>
     </header>
 
     <main>
+        <!-- TASK 6 -->
         <section class="card">
-            <h2>About project</h2>
-
-            <p> Student: <strong>Tabuldinova Zhansaya</strong></p>
-            <p>Group: <strong>MT-2501</strong></p>
-            <p>
-            This project contains individual JavaScript exercises covering variables, user input, arithmetic operations, strings, operators and functions.</p>
-    
-        <section class="card">
-        <h2>Tasks</h2>
-        <div class="task-list">
-            <div class="task">
-                <span class="task-number">TASK 6</span>
-                <p>Variables and data types</p>
+            <span class="task-number">TASK 6</span>
+            <h2>Interactive counter</h2>
+            <div class="counter-display" id="counterValue">0</div>
+            <div class="button-group">
+                <button id="btnIncrease" class="btn">Increase (+1)</button>
+                <button id="btnDecrease" class="btn">Decrease (-1)</button>
+                <button id="btnReset" class="btn btn-outline">Reset</button>
             </div>
+        </section>
 
-        <div class="task">
+        <!-- TASK 7 -->
+        <section class="card">
             <span class="task-number">TASK 7</span>
-            <p>Input and greeting</p>
-        </div>
+            <h2>Live text preview</h2>
+            <div class="form-group">
+                <label for="textInput">Type your text below:</label>
+                <input type="text" id="textInput" placeholder="Start typing..." autocomplete="off">
+            </div>
+            <div class="preview-box">
+                <p id="textPreview">Your text will appear here</p>
+            </div>
+            <div class="preview-footer">
+                <span id="charCount">Characters: 0</span>
+                <button id="btnClearText" class="btn btn-small">Clear</button>
+            </div>
+        </section>
 
-        <div class="task">
+        <!-- TASK 8 -->
+        <section class="card">
             <span class="task-number">TASK 8</span>
-            <p>Arithmetic operations</p>
-        </div>
+            <h2>Select Image</h2>
+            <div class="form-group">
+                <label for="imageSelect">Choose an aesthetic image:</label>
+                <select id="imageSelect">
+                    <option value="cat.jpg" data-alt="Fluffy Sleeping Kitten" data-caption="Cute fluffy kitten sleeping in pink fur">Sleeping Kitten</option>
+                    <option value="paris.jpg" data-alt="Eiffel Tower with Pink Flowers" data-caption="Eiffel Tower view surrounded by pink roses">Paris View</option>
+                    <option value="rose.jpg" data-alt="Pink Roses and Lilies Bouquet" data-caption="Beautiful bouquet of pink roses and white lilies">Flower Market</option>
+                </select>
+            </div>
+            <div class="image-container">
+                <img id="dynamicImage" src="cat.jpg" alt="Fluffy Sleeping Kitten">
+                <p id="imageCaption" class="caption">Cute fluffy kitten sleeping in pink fur</p>
+            </div>
+        </section>
 
-        <div class="task">
+        <!-- TASK 9 -->
+        <section class="card">
             <span class="task-number">TASK 9</span>
-            <p>Strings</p>
-        </div>
+            <h2>Keyboard Events</h2>
+            <div class="form-group">
+                <label for="keyInput">Keyboard Listener (Focus & type here):</label>
+                <input type="text" id="keyInput" placeholder="Press keys, Enter to submit, Esc to clear">
+            </div>
+            <p id="keyStatus" class="status-text">Last key pressed: None</p>
+            <div id="keyResult" class="result-box hidden"></div>
+        </section>
 
-        <div class="task">
+        <!-- TASK 10 -->
+        <section class="card">
             <span class="task-number">TASK 10</span>
-            <p>Increment and assignment operators</p>
-        </div>
-
-        <div class="task">
-            <span class="task-number">TASK 11</span>
-            <p>Dog age calculator</p>
-        </div>
-
-        <div class="task">
-            <span class="task-number">TASK 12</span>
-            <p>Functions</p>
-        </div>
-        </div>
-    </section>
-
-    <section class="card">
-    <h2>How to View Results</h2>
-        <div class="tip">
-        <p>Open the browser's developer console to see the JavaScript output.</p>
-        <p>Chrome on Mac: Press <code>Cmd + Option + J</code> </p>        </div>
-    </section>
+            <h2>Mouse & Focus Events</h2>
+            <p class="instruction" id="cardInstruction">Hover with mouse or navigate using Tab key to highlight card.</p>
+            <div class="focusable-card" id="interactiveCard" tabindex="0">
+                <h3>Focusable Interactive Card</h3>
+                <p>This card responds to mouseenter/mouseleave and keyboard focus/blur events.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
-    <p>Assignment 5 · Individual JavaScript Project</p>
+        <p>Assignment 5 · Individual JavaScript Project (DOM & Events)</p>
     </footer>
 
     </div>

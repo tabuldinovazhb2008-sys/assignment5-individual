@@ -1,104 +1,78 @@
-// TASK 6: 
-const fullName = "Tabuldinova Zhansaya";
-let age = 18;
-const isStudent = true;
-let favoriteColour = "green";
+document.addEventListener("DOMContentLoaded", () => {
 
-console.log("Full name:", fullName, "| Type:", typeof fullName);
-console.log("Age:", age, "| Type:", typeof age);
-console.log("Is student:", isStudent, "| Type:", typeof isStudent);
-console.log("Favourite colour:", favoriteColour, "| Type:", typeof favoriteColour);
+  // TASK 6
+const countText = document.querySelector("#counterValue");
+  let count = 0;
 
-favoriteColour = "Blue";
-console.log("New favourite colour:", favoriteColour);
+  document.querySelector("#btnIncrease").addEventListener("click", () => {
+    count++;
+    countText.textContent = count;
+  });
 
+  document.querySelector("#btnDecrease").addEventListener("click", () => {
+    if (count > 0) count--;
+    countText.textContent = count;
+  });
 
-// TASK 7: 
-const userName = prompt("What is your name?");
-alert("Hello, " + userName + "! Welcome to my website.");
+  document.querySelector("#btnReset").addEventListener("click", () => {
+    count = 0;
+    countText.textContent = count;
+  });
 
-const myGreeting = "My name is Zhansaya and I am in group MT-2501.";
-console.log(myGreeting);
+  // TASK 7: Live Text Preview
+const textInput = document.querySelector("#textInput");
+  const textPreview = document.querySelector("#textPreview");
+  const charCount = document.querySelector("#charCount");
 
+  textInput.addEventListener("input", () => {
+    charCount.textContent = "Characters: " + textInput.value.length;
+    textPreview.textContent = textInput.value || "Your text will appear here";
+  });
 
-// TASK 8: 
-const firstNumber = Number(prompt("Enter the first number:"));
-const secondNumber = Number(prompt("Enter the second number:"));
+  document.querySelector("#btnClearText").addEventListener("click", () => {
+    textInput.value = "";
+    textPreview.textContent = "Your text will appear here";
+    charCount.textContent = "Characters: 0";
+  });
 
-console.log("First number:", firstNumber);
-console.log("Second number:", secondNumber);
+  // TASK 8: Image Switcher
+const imageSelect = document.querySelector("#imageSelect");
+  const img = document.querySelector("#dynamicImage");
+  const caption = document.querySelector("#imageCaption");
 
-console.log("Sum:", firstNumber + secondNumber);
-console.log("Difference:", firstNumber - secondNumber);
-console.log("Product:", firstNumber * secondNumber);
-console.log("Quotient:", firstNumber / secondNumber);
-console.log("Remainder:", firstNumber % secondNumber);
+  imageSelect.addEventListener("change", () => {
+    const opt = imageSelect.options[imageSelect.selectedIndex];
+    img.src = opt.value;
+    img.alt = opt.getAttribute("data-alt");
+    caption.textContent = opt.getAttribute("data-caption");
+  });
 
+  // TASK 9: Keyboard Events
+const keyInput = document.querySelector("#keyInput");
+  const keyStatus = document.querySelector("#keyStatus");
+  const keyResult = document.querySelector("#keyResult");
 
-// TASK 9: 
-const studentName = "Tabuldinova Zhansaya";
+  keyInput.addEventListener("keydown", (e) => {
+    keyStatus.textContent = "Last key pressed: " + e.key;
 
-console.log("Full name:", studentName);
-console.log("Name length:", studentName.length);
-console.log("Uppercase:", studentName.toUpperCase());
-console.log("Lowercase:", studentName.toLowerCase());
-console.log("First three characters:", studentName.slice(0, 3));
+    if (e.key === "Enter") {
+      e.preventDefault();
+      keyResult.textContent = "Submitted: " + keyInput.value;
+      keyResult.classList.remove("hidden");
+    }
 
-const sentencePart1 = "I am learning";
-const sentencePart2 = "JavaScript.";
-const combinedSentence = sentencePart1 + " " + sentencePart2;
+    if (e.key === "Escape") {
+      keyInput.value = "";
+      keyResult.classList.add("hidden");
+    }
+  });
 
-console.log("Combined sentence:", combinedSentence);
+  // TASK 10: Mouse & Focus Events
+const card = document.querySelector("#interactiveCard");
 
+  card.addEventListener("mouseenter", () => card.classList.add("highlight"));
+  card.addEventListener("mouseleave", () => card.classList.remove("highlight"));
+  card.addEventListener("focus", () => card.classList.add("highlight"));
+  card.addEventListener("blur", () => card.classList.remove("highlight"));
 
-// TASK 10: 
-let counter = 10;
-console.log("Starting value:", counter);
-
-counter++;
-console.log("After ++:", counter);
-
-counter--;
-console.log("After --:", counter);
-
-counter += 5;
-console.log("After += 5:", counter);
-
-counter -= 3;
-console.log("After -= 3:", counter);
-
-counter *= 2;
-console.log("After *= 2:", counter);
-
-counter /= 4;
-console.log("After /= 4:", counter);
-
-
-// TASK 11:
-let dogAge = 2;
-let humanAge = (dogAge - 2) * 4 + 21;
-console.log("A dog aged " + dogAge + " years is " + humanAge + " in human years.");
-
-dogAge = 5;
-humanAge = (dogAge - 2) * 4 + 21;
-console.log("A dog aged " + dogAge + " years is " + humanAge + " in human years.");
-
-
-// TASK 12: 
-function greetUser(name) {
-    console.log("Hello, " + name + "!");
-}
-greetUser("Saya");
-greetUser("Bibi");
-
-function calculateSum(a, b) {
-    return a + b;
-}
-console.log("Sum of 3 and 7:", calculateSum(3, 7));
-console.log("Sum of 10 and 20:", calculateSum(10, 20));
-
-function calculateRectangleArea(width, height) {
-    return width * height;
-}
-console.log("Rectangle area (5 x 4):", calculateRectangleArea(5, 4));
-console.log("Rectangle area (8 x 3):", calculateRectangleArea(8, 3));
+});
